@@ -1,0 +1,47 @@
+@model IEnumerable<RaiseYourHand.Models.Hand>
+
+@{
+    ViewData["Title"] = "Raise You Hand";
+}
+
+    
+<h1>Raise Your Hand : An Active Learning support tool</h1>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <a asp-action="Create" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New</a>
+    </div>
+    <hr/>
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+           <div class="panel panel-primary">
+            <div class="panel-heading">
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span> @Html.DisplayFor(modelItem => item.HandNo)</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> @Html.DisplayFor(modelItem => item.UserName)
+                </li>
+                <li class="list-group-item">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> @Html.DisplayFor(modelItem => item.Message)
+                </li>                
+                </ul>
+            </div>
+        </div>     
+        </div>
+    }
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

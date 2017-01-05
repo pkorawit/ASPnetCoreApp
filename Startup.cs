@@ -12,6 +12,8 @@ using Microsoft.Extensions.Logging;
 using WebApplication.Data;
 using WebApplication.Models;
 using WebApplication.Services;
+using RaiseYourHand.Models;
+
 
 namespace WebApplication
 {
@@ -42,6 +44,9 @@ namespace WebApplication
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<HandDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("AzureDB")));                
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()

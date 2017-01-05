@@ -134,7 +134,7 @@ namespace WebApplication.Controllers
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation(4, "User logged out.");
-            return RedirectToAction(nameof(HomeController.Index), "Home");
+            return RedirectToAction(nameof(HandController.Index), "Home");
         }
 
         //
@@ -459,7 +459,7 @@ namespace WebApplication.Controllers
             }
             else
             {
-                return RedirectToAction(nameof(HomeController.Index), "Home");
+                return RedirectToAction(nameof(HandController.Index), "Home");
             }
         }
 

@@ -1,0 +1,44 @@
+@model RaiseYourHand.Models.Hand
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+
+<div class="form-horizontal">
+<h4>Raise a Hand</h4>
+<hr/>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="UserName" class="col-md-2 control-label">Username</label>
+    <div class="col-md-10">
+        <input asp-for="UserName" class="form-control" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+</div>
+<div class="form-group">
+    <label asp-for="Message" class="col-md-2 control-label">Message</label>
+    <div class="col-md-10">
+        <input asp-for="Message" class="form-control" />
+        <span asp-validation-for="Message" class="text-danger"></span>
+    </div>
+</div>
+<div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+</div>
+
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
